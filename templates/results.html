@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ election.title }}{% endblock %}
+{% block content %}
+<h1>{% blocktrans trimmed with title=election.title %}{{ title }}: Results{% endblocktrans %}</h1>
+{% if preview %}<div class="msg info">{% trans "Voting is still open. Only election staff can see these live results." %}</div>{% endif %}
+<p class="muted">{% trans "Students who voted:" %} <strong>{{ turnout }}</strong> / {{ eligible_voters }} ({{ turnout_percent }}%)</p>
+{% for d in data %}
+<div class="card">
+  <h2>{{ d.position.name }} <span class="muted">({% blocktrans count counter=d.total %}{{ counter }} ballot{% plural %}{{ counter }} ballots{% endblocktrans %})</span></h2>
+  {% for r in d.rows %}
+  <div class="{% if r.total == d.top and d.top > 0 %}winner{% endif %}">
+    <div class="res-head">
+      {% if r.photo %}<img class="photo" src="{{ r.photo.url }}" alt="{{ r.full_name }}">
+      {% else %}<span class="photo ph" aria-hidden="true">{{ r.full_name|slice:":1" }}</span>{% endif %}
+      <div class="meta"><span>{{ r.full_name }}{% if r.total == d.top and d.top > 0 %} {% if d.tied %}{% trans "(tied)" %}{% else %}{% trans "(leading)" %}{% endif %}{% endif %}</span>
+        <span>{{ r.total }} · {{ r.percent }}%</span></div>
+    </div>
+    <div class="bar-wrap"><div class="bar-fill" style="width: {{ r.percent|stringformat:'s' }}%"></div></div>
+  </div>
+  {% endfor %}
+  <p class="muted">{% trans "Participation for this position:" %} {{ d.participation }} · {% trans "Abstained:" %} {{ d.abstain }}</p>
+  {% if d.tied %}<div class="msg info">{% trans "There is a tie. The election committee should follow the union's tie-break rule." %}</div>{% endif %}
+</div>
+{% endfor %}
+<a class="btn alt" href="{% url 'home' %}">{% trans "Back" %}</a>
+{% endblock %}

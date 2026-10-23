@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ election.title }}{% endblock %}
+{% block content %}
+<h1>{% blocktrans trimmed with title=election.title %}{{ title }}: Ballot{% endblocktrans %}</h1>
+<p class="muted">{% trans 'Your vote is secret. Once submitted it cannot be changed. You may choose "Abstain" for any position.' %}</p>
+{% trans "Submit your vote? You cannot change it afterwards." as confirm_msg %}
+<form method="post" action="{% url 'cast_vote' election.id %}"
+      onsubmit="return confirm('{{ confirm_msg|escapejs }}');">
+  {% csrf_token %}
+  {% for p in positions %}
+  <div class="card">
+    <h2>{{ p.name }}</h2>
+    {% for c in p.candidates.all %}
+    <label class="cand">
+      <input type="radio" name="position_{{ p.id }}" value="{{ c.id }}" required>
+      {% if c.photo %}<img class="photo" src="{{ c.photo.url }}" alt="{{ c.full_name }}">
+      {% else %}<span class="photo ph" aria-hidden="true">{{ c.full_name|slice:":1" }}</span>{% endif %}
+      <span>
+        <span class="name">{{ c.full_name }}</span>
+        <span class="muted">{% if c.department %} · {{ c.department }}{% endif %}{% if c.year %} · {% blocktrans with year=c.year %}Year {{ year }}{% endblocktrans %}{% endif %}</span>
+        {% if c.manifesto %}<div class="manifesto">{{ c.manifesto }}</div>{% endif %}
+      </span>
+    </label>
+    {% empty %}<p class="muted">{% trans "No candidates for this position." %}</p>{% endfor %}
+    <label class="cand">
+      <input type="radio" name="position_{{ p.id }}" value="abstain" required>
+      <span class="name">{% trans "Abstain" %}</span>
+    </label>
+  </div>
+  {% endfor %}
+  <button class="btn" type="submit">{% trans "Submit my vote" %}</button>
+  <a class="btn alt" href="{% url 'home' %}">{% trans "Back" %}</a>
+</form>
+{% endblock %}

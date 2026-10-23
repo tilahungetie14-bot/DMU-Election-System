@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Card sign in - DMU Election" %}{% endblock %}
+{% block content %}
+<div class="card" style="max-width:460px;margin:30px auto;text-align:center">
+  <h1>{% trans "Tap your RFID card" %}</h1>
+  {% if blocked %}
+    <div class="msg error">{% trans "Card sign-in is not available on this computer. Please use your student ID and password." %}</div>
+    <a class="btn alt" href="{% url 'login' %}">{% trans "Sign in with password" %}</a>
+  {% else %}
+  <p class="muted">{% trans "Hold your student card on the reader. You will be signed in automatically." %}</p>
+  <form method="post" id="cardform" autocomplete="off">{% csrf_token %}
+    <input type="password" name="rfid" id="rfid" autofocus autocomplete="off"
+           aria-label="{% trans 'RFID card number' %}" style="text-align:center;letter-spacing:3px">
+  </form>
+  <p style="margin-top:16px"><a href="{% url 'login' %}">{% trans "Sign in with password" %}</a></p>
+  <script>
+    // Keep the cursor in the box so the reader's keystrokes always land there.
+    var box = document.getElementById("rfid");
+    document.addEventListener("click", function(){ box.focus(); });
+    box.addEventListener("blur", function(){ setTimeout(function(){ box.focus(); }, 50); });
+  </script>
+  {% endif %}
+</div>
+{% endblock %}

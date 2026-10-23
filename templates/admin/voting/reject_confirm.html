@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% block breadcrumbs %}
+<div class="breadcrumbs"><a href="{% url 'admin:index' %}">Home</a> &rsaquo;
+  <a href="{% url 'admin:voting_voter_changelist' %}">Voters</a> &rsaquo; Reject students</div>
+{% endblock %}
+{% block content %}
+<p>You are about to <strong>reject {{ students|length }} student{{ students|length|pluralize }}</strong>.
+They will not be able to vote and will see the reason below on their home page.
+You can approve them again later. Every decision is recorded in the Review log.</p>
+<ul>{% for v in students %}<li>{{ v.user.username }} &ndash; {{ v.user.get_full_name }}</li>{% endfor %}</ul>
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <input type="hidden" name="action" value="reject_selected">
+  <input type="hidden" name="apply" value="1">
+  <input type="submit" class="default" value="Reject these students">
+  <a href="{% url 'admin:voting_voter_changelist' %}" class="button cancel-link">Cancel</a>
+</form>
+{% endblock %}

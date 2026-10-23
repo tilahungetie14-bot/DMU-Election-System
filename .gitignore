@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.venv/
+venv/
+env/
+
+# Django secrets and local settings
+.env
+.env.*
+!.env.example
+local_settings.py
+
+# Database files - do not upload real voter data
+db.sqlite3
+db_backup.sqlite3
+*.sqlite3
+*.sqlite3-journal
+
+# User uploads and private media
+media/
+private_media/
+
+# Static files generated for deployment
+staticfiles/
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

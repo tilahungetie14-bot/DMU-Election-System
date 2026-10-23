@@ -1,0 +1,6 @@
+django>=6.1,<7
+pillow
+whitenoise
+waitress
+# Only if you use PostgreSQL:
+# psycopg[binary]

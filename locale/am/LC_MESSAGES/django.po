@@ -1,0 +1,229 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Language: am\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "DMU Student Union Election"
+msgstr "የዲኤምዩ የተማሪዎች ህብረት ምርጫ"
+
+msgid "Debre Markos University"
+msgstr "ደብረ ማርቆስ ዩኒቨርሲቲ"
+
+msgid "Student Union Election"
+msgstr "የተማሪዎች ህብረት ምርጫ"
+
+msgid "Language"
+msgstr "ቋንቋ"
+
+msgid "Log out"
+msgstr "ውጣ"
+
+msgid "Sign in - DMU Election"
+msgstr "ግባ - ዲኤምዩ ምርጫ"
+
+msgid "Student sign in"
+msgstr "የተማሪ መግቢያ"
+
+msgid ""
+"Use your student ID and the password given to you by the election committee."
+msgstr "የተማሪ መታወቂያ ቁጥርዎን እና ከምርጫ ኮሚቴው የተሰጠዎትን የይለፍ ቃል ይጠቀሙ።"
+
+msgid "Incorrect student ID or password."
+msgstr "የተማሪ መታወቂያ ቁጥር ወይም የይለፍ ቃል ትክክል አይደለም።"
+
+msgid "Student ID"
+msgstr "የተማሪ መታወቂያ ቁጥር"
+
+msgid "Password"
+msgstr "የይለፍ ቃል"
+
+msgid "Sign in"
+msgstr "ግባ"
+
+msgid "No election yet"
+msgstr "እስካሁን ምርጫ የለም"
+
+msgid "There is no published election at the moment. Please check back later."
+msgstr "በአሁኑ ጊዜ የታተመ ምርጫ የለም። እባክዎ ቆይተው ይመለሱ።"
+
+msgid "Voting: %(start)s to %(end)s"
+msgstr "ድምጽ መስጫ፡ ከ%(start)s እስከ %(end)s"
+
+msgid "Voted"
+msgstr "ድምጽ ሰጥተዋል"
+
+msgid "Not voted yet"
+msgstr "ገና ድምጽ አልሰጡም"
+
+msgid "Go to ballot"
+msgstr "ወደ ድምጽ መስጫ ይሂዱ"
+
+msgid "You have voted for every position. Thank you for taking part!"
+msgstr "ለሁሉም የሥራ ቦታዎች ድምጽ ሰጥተዋል። ስለተሳተፉ እናመሰግናለን!"
+
+msgid "Voting has ended."
+msgstr "ድምጽ መስጠት ተጠናቅቋል።"
+
+msgid "Voting has not opened yet."
+msgstr "ድምጽ መስጠት ገና አልተከፈተም።"
+
+msgid "View results"
+msgstr "ውጤቱን ይመልከቱ"
+
+msgid "%(title)s: Ballot"
+msgstr "%(title)s፡ የድምጽ መስጫ ወረቀት"
+
+msgid ""
+"Your vote is secret. Once submitted it cannot be changed. You may choose "
+"\"Abstain\" for any position."
+msgstr ""
+"ድምጽዎ ሚስጥር ነው። ከተላከ በኋላ መቀየር አይቻልም። ለማንኛውም የሥራ ቦታ «ድምጸ ተአቅቦ» መምረጥ ይችላሉ።"
+
+msgid "Submit your vote? You cannot change it afterwards."
+msgstr "ድምጽዎን ይላኩ? ከዚያ በኋላ መቀየር አይችሉም።"
+
+msgid "Year %(year)s"
+msgstr "%(year)s ኛ ዓመት"
+
+msgid "No candidates for this position."
+msgstr "ለዚህ የሥራ ቦታ ተወዳዳሪ የለም።"
+
+msgid "Abstain"
+msgstr "ድምጸ ተአቅቦ"
+
+msgid "Submit my vote"
+msgstr "ድምጼን ላክ"
+
+msgid "Back"
+msgstr "ተመለስ"
+
+msgid "%(title)s: Results"
+msgstr "%(title)s፡ ውጤት"
+
+msgid "Voting is still open. Only election staff can see these live results."
+msgstr "ድምጽ መስጠት አሁንም ክፍት ነው። እነዚህን ወቅታዊ ውጤቶች የምርጫ ሠራተኞች ብቻ ማየት ይችላሉ።"
+
+msgid "Students who voted:"
+msgstr "ድምጽ የሰጡ ተማሪዎች፡"
+
+msgid "Abstained:"
+msgstr "ድምጸ ተአቅቦ፡"
+
+msgid "(tied)"
+msgstr "(እኩል)"
+
+msgid "(leading)"
+msgstr "(እየመራ ነው)"
+
+msgid ""
+"There is a tie. The election committee should follow the union's tie-break "
+"rule."
+msgstr "እኩል ድምጽ ተገኝቷል። የምርጫ ኮሚቴው የህብረቱን የእኩልነት መፍቻ ደንብ መከተል አለበት።"
+
+msgid "Voting is not open for this election."
+msgstr "ለዚህ ምርጫ ድምጽ መስጠት ክፍት አይደለም።"
+
+msgid "Voting is closed."
+msgstr "ድምጽ መስጠት ተዘግቷል።"
+
+msgid "You have already voted for one of these positions."
+msgstr "ከእነዚህ የሥራ ቦታዎች ለአንዱ አስቀድመው ድምጽ ሰጥተዋል።"
+
+msgid "Your vote was recorded for %(n)d position(s). Thank you!"
+msgstr "ድምጽዎ ለ%(n)d የሥራ ቦታ(ዎች) ተመዝግቧል። እናመሰግናለን!"
+
+msgid "No choices were submitted."
+msgstr "ምንም ምርጫ አልተላከም።"
+
+msgid "Results are not available yet."
+msgstr "ውጤቱ ገና አልተዘጋጀም።"
+
+msgid "%(counter)s ballot"
+msgid_plural "%(counter)s ballots"
+msgstr[0] "%(counter)s ድምጽ"
+msgstr[1] "%(counter)s ድምጾች"
+
+msgid "Full name"
+msgstr "ሙሉ ስም"
+
+msgid "Department"
+msgstr "ትምህርት ክፍል"
+
+msgid "Year"
+msgstr "ዓመት"
+
+msgid "RFID card number"
+msgstr "የRFID ካርድ ቁጥር"
+
+msgid "Confirm password"
+msgstr "የይለፍ ቃል ያረጋግጡ"
+
+msgid "Registration failed."
+msgstr "ምዝገባ አልተሳካም።"
+
+msgid "Please enter your full name (at least two names)."
+msgstr "እባክዎ ሙሉ ስምዎን ያስገቡ (ቢያንስ ሁለት ስሞች)።"
+
+msgid ""
+"Student ID may contain letters, numbers and / . _ - only (3 to 50 "
+"characters)."
+msgstr "የተማሪ መታወቂያ ቁጥር ፊደላትን፣ ቁጥሮችን እና / . _ - ብቻ ሊይዝ ይችላል (ከ3 እስከ 50 ቁምፊዎች)።"
+
+msgid "This student ID is already registered."
+msgstr "ይህ የተማሪ መታወቂያ ቁጥር አስቀድሞ ተመዝግቧል።"
+
+msgid "This field is required."
+msgstr "ይህ መስክ መሞላት አለበት።"
+
+msgid "This RFID card is already registered."
+msgstr "ይህ የRFID ካርድ አስቀድሞ ተመዝግቧል።"
+
+msgid "The two passwords do not match."
+msgstr "ሁለቱ የይለፍ ቃሎች አይመሳሰሉም።"
+
+msgid "This student ID or RFID card is already registered."
+msgstr "ይህ የተማሪ መታወቂያ ቁጥር ወይም የRFID ካርድ አስቀድሞ ተመዝግቧል።"
+
+msgid ""
+"Registration received. You can vote once the election committee approves "
+"your account."
+msgstr "ምዝገባዎ ደርሶናል። የምርጫ ኮሚቴው አካውንትዎን ሲያጸድቅ ድምጽ መስጠት ይችላሉ።"
+
+msgid "Your account is waiting for approval and cannot vote yet."
+msgstr "አካውንትዎ ፈቃድ በመጠባበቅ ላይ ስለሆነ ገና ድምጽ መስጠት አይችሉም።"
+
+msgid "Register - DMU Election"
+msgstr "ምዝገባ - ዲኤምዩ ምርጫ"
+
+msgid "Student registration"
+msgstr "የተማሪ ምዝገባ"
+
+msgid "Registration is closed. Please contact the election committee."
+msgstr "ምዝገባ ተዘግቷል። እባክዎ የምርጫ ኮሚቴውን ያነጋግሩ።"
+
+msgid "Back to sign in"
+msgstr "ወደ መግቢያ ተመለስ"
+
+msgid ""
+"Fill in all fields. The election committee must approve your registration "
+"before you can vote."
+msgstr "ሁሉንም መስኮች ይሙሉ። ድምጽ ከመስጠትዎ በፊት የምርጫ ኮሚቴው ምዝገባዎን ማጽደቅ አለበት።"
+
+msgid "Register"
+msgstr "ተመዝገብ"
+
+msgid "No account yet?"
+msgstr "አካውንት የለዎትም?"
+
+msgid "Register here"
+msgstr "እዚህ ይመዝገቡ"
+
+msgid ""
+"Your registration is waiting for approval by the election committee. You can"
+" vote once it is approved."
+msgstr "ምዝገባዎ በምርጫ ኮሚቴው ማረጋገጫ በመጠባበቅ ላይ ነው። ሲጸድቅ ድምጽ መስጠት ይችላሉ።"

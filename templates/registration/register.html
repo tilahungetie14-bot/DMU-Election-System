@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Register - DMU Election" %}{% endblock %}
+{% block content %}
+<div class="card" style="max-width:520px;margin:30px auto">
+  <h1>{% trans "Student registration" %}</h1>
+  {% if closed %}
+    <div class="msg info">{% trans "Registration is closed. Please contact the election committee." %}</div>
+    <a class="btn alt" href="{% url 'login' %}">{% trans "Back to sign in" %}</a>
+  {% else %}
+  <p class="muted">{% trans "Fill in all fields. The election committee must approve your registration before you can vote." %}</p>
+  {% if form.non_field_errors %}<div class="msg error">{{ form.non_field_errors|join:" " }}</div>{% endif %}
+  <form method="post" novalidate>{% csrf_token %}
+    {% for field in form %}
+      {% if field.name == "website" %}
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="{{ field.id_for_label }}">Leave this empty</label>
+          <input type="text" name="website" id="{{ field.id_for_label }}" tabindex="-1" autocomplete="off">
+        </div>
+      {% else %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% for e in field.errors %}<div class="ferr">{{ e }}</div>{% endfor %}
+      {% endif %}
+    {% endfor %}
+    <p style="margin-top:18px"><button class="btn" type="submit">{% trans "Register" %}</button>
+      <a class="btn alt" href="{% url 'login' %}">{% trans "Back to sign in" %}</a></p>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

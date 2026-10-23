@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+{% if not election %}
+  <div class="card"><h1>{% trans "No election yet" %}</h1><p class="muted">{% trans "There is no published election at the moment. Please check back later." %}</p></div>
+{% else %}
+  <div class="card">
+    <h1>{{ election.title }}</h1>
+    <p class="muted">{% blocktrans trimmed with start=election.start|date:"Y-m-d H:i" end=election.end|date:"Y-m-d H:i" %}Voting: {{ start }} to {{ end }}{% endblocktrans %}</p>
+    {% for p in positions %}
+      <p>{{ p.name }}
+        {% if p.id in voted_ids %}<span class="badge">{% trans "Voted" %}</span>{% else %}<span class="badge todo">{% trans "Not voted yet" %}</span>{% endif %}</p>
+    {% endfor %}
+    {% if pending %}
+      <div class="msg info">{% trans "Your registration is waiting for approval by the election committee. You can vote once it is approved." %}</div>
+    {% elif election.is_open and not done %}
+      <a class="btn" href="{% url 'ballot' election.id %}">{% trans "Go to ballot" %}</a>
+    {% elif done %}
+      <div class="msg success">{% trans "You have voted for every position. Thank you for taking part!" %}</div>
+    {% elif election.has_ended %}
+      <div class="msg info">{% trans "Voting has ended." %}</div>
+    {% else %}
+      <div class="msg info">{% trans "Voting has not opened yet." %}</div>
+    {% endif %}
+    {% if user.is_staff or election.results_public and election.has_ended %}
+      <a class="btn alt" href="{% url 'results' election.id %}">{% trans "View results" %}</a>
+    {% endif %}
+  </div>
+{% endif %}
+{% endblock %}

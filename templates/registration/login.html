@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Sign in - DMU Election" %}{% endblock %}
+{% block content %}
+<div class="card" style="max-width:420px;margin:30px auto">
+  <h1>{% trans "Student sign in" %}</h1>
+  <p class="muted">{% trans "Use your student ID and the password given to you by the election committee." %}</p>
+  {% if form.errors %}<div class="msg error">{% trans "Incorrect student ID or password." %}</div>{% endif %}
+  <form method="post">{% csrf_token %}
+    <label for="id_username">{% trans "Student ID" %}</label>
+    <input type="text" name="username" id="id_username" autofocus autocomplete="username" required>
+    <label for="id_password">{% trans "Password" %}</label>
+    <input type="password" name="password" id="id_password" autocomplete="current-password" required>
+    <p><button class="btn" type="submit">{% trans "Sign in" %}</button></p>
+    <p class="muted">{% trans "No account yet?" %} <a href="{% url 'register' %}">{% trans "Register here" %}</a></p>
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+</div>
+{% endblock %}
