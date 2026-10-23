@@ -16,6 +16,12 @@ A Django-based web application for managing Student Union elections at **Debre M
 - **RFID field support:** Student registration includes an RFID field.
 - **Automated tests:** Run the Django app's voting tests.
 
+## Screenshots
+
+### Student Login Page
+
+![DMU Election System - Student Login](screenshots login-page.png)
+
 ## Technology Stack
 
 - Python
