@@ -20,7 +20,7 @@ A Django-based web application for managing Student Union elections at **Debre M
 
 ### Student Login Page
 
-![DMU Election System - Student Login](screenshots login-page.png)
+![DMU Election System - Student Login](screenshots/login-page.png)
 
 ## Technology Stack
 
