@@ -1,36 +1,46 @@
 # DMU Student Union Online Voting System
 
-A Django-based web application for managing Student Union elections at **Debre Markos University (DMU)**. The system supports student registration, administrator approval, secure voting, candidate management, and election results.
+A web-based election management and online voting system developed for **Debre Markos University (DMU)** using Python and Django. The platform helps administrators manage elections, positions, candidates, and voter eligibility while allowing approved students to participate in scheduled elections.
 
-## Features
+**Live Demo:** [DMU Election System](https://tilahun1921.pythonanywhere.com)
 
-- **Student registration and approval:** Students register with their details and wait for administrator approval.
-- **Secure authentication:** Login is required before voting.
-- **Election management:** Administrators manage elections, positions, and candidates.
-- **One vote per position:** Database constraints help prevent duplicate voting.
-- **Secret ballot design:** Vote records are separated from voter identity records.
-- **Candidate photos:** Display candidate photos on ballot and results pages.
-- **Election scheduling:** Voting is restricted to the configured election period.
-- **Results management:** Administrators control when results become public.
-- **English and Amharic:** Language selector for supported student pages.
-- **RFID field support:** Student registration includes an RFID field.
-- **Automated tests:** Run the Django app's voting tests.
+> **Project status:** Deployed on PythonAnywhere. This is an academic software project; independent security review is required before use in a high-stakes election.
 
 ## Screenshots
 
 ### Student Login Page
 
-![DMU Election System - Student Login](screenshots/login-page.png)
+![DMU Election System Student Login](screenshots/login-page.png)
+
+## Key Features
+
+- **Student registration:** Collect student information for election participation.
+- **Administrator approval:** Review and approve student accounts where required.
+- **Authentication:** Require users to sign in before accessing protected voting features.
+- **Election management:** Configure elections, positions, candidates, and voting schedules.
+- **Voting safeguards:** Apply application-level checks and database constraints to help prevent duplicate votes.
+- **Ballot privacy design:** Separate vote records from voter identity records.
+- **Candidate profiles:** Display candidate photos.
+- **Election scheduling:** Restrict voting according to configured start and end times.
+- **Results management:** Control when election results are published.
+- **Bilingual interface:** Support English and Amharic on supported student pages.
+- **RFID field support:** Include an RFID field in student registration.
+- **Automated tests:** Run the voting application's Django tests.
 
 ## Technology Stack
 
-- Python
-- Django
-- SQLite
-- HTML and CSS
-- Pillow for image handling
+- **Backend:** Python, Django
+- **Database:** SQLite
+- **Frontend:** HTML, CSS, Django templates
+- **Image handling:** Pillow
+- **Deployment:** PythonAnywhere
+- **Version control:** Git and GitHub
 
 ## Getting Started
+
+### Prerequisites
+
+Install a supported Python version and Git before starting.
 
 ### 1. Clone the repository
 
@@ -39,45 +49,70 @@ git clone https://github.com/tilahungetie14-bot/DMU-Election-System.git
 cd DMU-Election-System
 ```
 
-### 2. Install dependencies
+### 2. Create and activate a virtual environment
+
+Create the environment:
 
 ```bash
 python -m venv .venv
 ```
 
-On Windows:
+On Windows (Git Bash):
+
+```bash
+source .venv/Scripts/activate
+```
+
+On Windows (Command Prompt):
 
 ```cmd
 .venv\Scripts\activate
 ```
 
-Then install the project dependencies:
+On Linux or macOS:
 
 ```bash
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 3. Prepare the database
+### 4. Configure environment variables
+
+Before production deployment, configure the secret key, allowed hosts, and other required settings according to `config/settings.py` and `DEPLOY.md`.
+
+Never commit real secret keys, passwords, production databases, or private voter information to GitHub.
+
+### 5. Prepare the database
+
+For a new local development database:
 
 ```bash
 python manage.py migrate
 ```
 
-### 4. Create an administrator account
+### 6. Create an administrator account
 
 ```bash
 python manage.py createsuperuser
 ```
 
-### 5. Optional: Create demo data
+### 7. Optional: Create demo data
+
+If the demo-data command is available in your checkout:
 
 ```bash
 python manage.py seed_demo
 ```
 
-**Demo warning:** Demo accounts and passwords are for local testing only. Never use demo credentials for a real election. Remove demo accounts before deployment.
+Use demo accounts only for local testing. Never use demo credentials in production.
 
-### 6. Start the development server
+### 8. Start the development server
 
 ```bash
 python manage.py runserver
@@ -91,45 +126,44 @@ The Django administration panel is available at [http://127.0.0.1:8000/admin/](h
 
 1. Create an administrator account.
 2. Open `/admin/` and configure an election, its positions, and candidates.
-3. Register eligible students or import voter records using the project's management command.
+3. Register eligible students or import voter records using the project's supported management command.
 4. Approve student accounts where required.
-5. Publish the election and configure its start and end times.
-6. Allow eligible students to vote during the election period.
-7. After voting ends, make results public when appropriate.
+5. Configure the election schedule and publish the election according to the application's workflow.
+6. Allow eligible students to vote during the permitted election period.
+7. After voting closes, publish results when appropriate.
 
-See `DEPLOY.md` for additional deployment and voter-import instructions.
+Refer to `DEPLOY.md` for deployment and voter-import instructions.
 
-## Vote Protection
+## Vote Protection and Privacy
 
-The project includes several safeguards:
+The project includes safeguards intended to support election integrity:
 
-- Authentication is required to access voting.
-- Database constraints help prevent duplicate votes for a position.
-- Votes are submitted within a database transaction.
-- Candidates must belong to the relevant position.
-- Voting is restricted by the election's start and end times.
-- An abstain option is available for each position.
-- The design separates ballot records from voter identity records.
+- Authentication for protected voting features.
+- Database constraints intended to prevent duplicate votes for a position.
+- Transaction-based vote submission.
+- Candidate and position validation.
+- Start-time and end-time checks for voting.
+- An abstain option for each position.
+- Separation of ballot records from voter identity records.
 
-These safeguards are implemented in the application; they should not be interpreted as a guarantee of security for a high-stakes real election without independent security review and testing.
+These are application safeguards, not a certification of election security or ballot anonymity. A real election requires independent security testing, access-control review, backup and recovery procedures, and privacy assessment.
 
-## Run Tests
+## Running Tests
+
+Run the voting application's tests with:
 
 ```bash
 python manage.py test voting
 ```
 
-## Configuration and Deployment
+## Deployment
 
-Before deploying:
+The production site is hosted on PythonAnywhere:
 
-- Set `DJANGO_DEBUG=0`.
-- Set a strong, secret `DJANGO_SECRET_KEY`.
-- Configure `DJANGO_ALLOWED_HOSTS` for the deployment host.
-- Use HTTPS in production.
-- Review access controls, voter-data handling, backups, and deployment settings.
+- **Website:** https://tilahun1921.pythonanywhere.com
+- **Deployment guide:** [`DEPLOY.md`](DEPLOY.md)
 
-Read `DEPLOY.md` for more information.
+Production deployments should use `DEBUG=False`, a strong secret key stored outside source control, correctly configured allowed hosts, HTTPS, secure access controls, and a tested backup and recovery plan.
 
 ## Project Structure
 
@@ -137,6 +171,9 @@ Read `DEPLOY.md` for more information.
 DMU-Election-System/
 ├── config/
 ├── locale/
+├── media/
+├── screenshots/
+│   └── login-page.png
 ├── templates/
 ├── voting/
 ├── manage.py
@@ -148,8 +185,12 @@ DMU-Election-System/
 
 ## Project Purpose
 
-This project demonstrates the development of a university election web application using Django, with an emphasis on election administration, voter eligibility, ballot privacy, and transparent result management.
+This project demonstrates the design and implementation of a university election web application, focusing on election administration, voter eligibility, scheduled voting, ballot privacy design, and results management.
 
----
+## Author and Institution
 
-**Developed as a university software project for Debre Markos University.**
+Developed as a university software project for **Debre Markos University (DMU)**.
+
+## License
+
+No license has been specified yet. Contact the repository owner before reusing or redistributing this project.
